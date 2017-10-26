@@ -44,6 +44,8 @@ class PlaylistsController < ApplicationController
   # DELETE /playlists/1
   # DELETE /playlists/1.json
   def destroy
+    @playlist = Playlist.find(params[:id])
+
     @playlist.destroy
     respond_to do |format|
       format.html { redirect_to playlists_url, notice: 'Playlist was successfully destroyed.' }
